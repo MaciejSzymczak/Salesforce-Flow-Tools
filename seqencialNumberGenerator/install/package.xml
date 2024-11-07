@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Sequence</members>
+        <members>SequenceTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>RR_SEQ1__c</members>
+        <members>RR_SEQ2__c</members>
+        <members>RR_SEQ3__c</members>
+        <members>RR_SEQ4__c</members>
+        <members>RR_SEQ5__c</members>
+        <members>RR_SEQ6__c</members>
+        <members>RR_SEQ7__c</members>
+        <name>CustomObject</name>
+    </types>
+    <version>46.0</version>
+</Package>

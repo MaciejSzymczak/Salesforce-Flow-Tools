@@ -1,0 +1,11 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens">
+
+    <aura:attribute name="recordId" type="String" access="global" />
+    <aura:attribute name="cancelText" type="String" access="global" />
+    
+   <div class="slds-p-top_medium slds-clearfix">
+      <div class="slds-float_left">
+          <a href="{!'/'+v.recordId}">{!v.cancelText}</a>
+      </div>
+   </div>
+</aura:component>

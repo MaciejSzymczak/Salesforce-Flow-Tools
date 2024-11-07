@@ -1,0 +1,3 @@
+<aura:component implements="lightning:availableForFlowActions" controller="redirectToURLClass">
+        <aura:attribute name="URL" type="String" />
+</aura:component>
