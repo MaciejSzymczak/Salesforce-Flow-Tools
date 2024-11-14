@@ -5,6 +5,8 @@
     <members>JSONGeneratorTest</members>
     <members>JsonXPath</members>
     <members>JsonXPathTest</members>    
+    <members>JSONUpdate</members>
+    <members>JSONUpdateTest</members>
     <name>ApexClass</name>
   </types>
   <types>
