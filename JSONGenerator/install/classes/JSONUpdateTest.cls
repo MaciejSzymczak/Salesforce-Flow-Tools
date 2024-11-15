@@ -3,7 +3,7 @@ public class JSONUpdateTest {
 
     static testMethod void getTest() {
         JSONUpdate.Params x = new JSONUpdate.Params();
-        x.jsonString = '[{"type":"Account","Id":"001TA00000OUwVSYA1","Name":"Pivotal Migration Test-TH8","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
+        x.jsonString = '[{"type":"Account","Id":"001TA00000OUwVSYA1","Name":"My example account","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
         x.operation = 'get';
         x.key = 'Id';
         List<JSONUpdate.Params> Params = new List<JSONUpdate.Params> {x};
@@ -17,7 +17,7 @@ public class JSONUpdateTest {
     
     static testMethod void putTest() {
         JSONUpdate.Params x = new JSONUpdate.Params();
-        x.jsonString = '[{"type":"Account","Id":"001TA00000OUwVSYA1","Name":"Pivotal Migration Test-TH8","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
+        x.jsonString = '[{"type":"Account","Id":"001TA00000OUwVSYA1","Name":"My example account","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
         x.operation = 'put';
         x.key = 'AnotherKey';
         x.value = 'AnotherValue';
@@ -30,12 +30,12 @@ public class JSONUpdateTest {
 
     static testMethod void deleteTest() {
         JSONUpdate.Params x = new JSONUpdate.Params();
-        x.jsonString = '[{"type":"Account","Id":"001TA00000OUwVSYA1","Name":"Pivotal Migration Test-TH8","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
+        x.jsonString = '[{"type":"Account","Id":"001TA00000OUwVSYA1","Name":"My example account","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
         x.operation = 'delete';
         x.key = 'Id';
         List<JSONUpdate.Params> Params = new List<JSONUpdate.Params> {x};
         List<String> res = JSONUpdate.run(Params);
-        String expectedResult = '[{"type":"Account","Name":"Pivotal Migration Test-TH8","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
+        String expectedResult = '[{"type":"Account","Name":"My example account","Contacts":{"done":"true","queryLocator":null,"records":{"type":"Contact","Id":"003TA00000PdPwMYAV","LastName":"Test"},"size":"1"}}]';
         system.debug('deleteTest');
         system.debug('expectedResult:'+expectedResult);
         system.debug('actualResult:'+res[0]);
