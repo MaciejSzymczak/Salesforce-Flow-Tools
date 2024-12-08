@@ -1,9 +1,8 @@
 public  class JsonXPath {
     
-/*SFL8N-4705
- * 
+/* 
 * @author Maciej Szymczak
-* @version 2024.12.06
+* @version 2024.12.08
 */    
         
     @InvocableMethod (label='JsonXPath' description='Extracts string from JSON') 
@@ -39,7 +38,7 @@ public  class JsonXPath {
     }
 
     private static void debug(String m) {
-      System.debug(m);
+      //System.debug('DEBUG JsonXPath:' + m);
     }
     
     private static void processPath(Object current, List<String> pathParts, Integer index, List<String> results) {
@@ -53,15 +52,19 @@ public  class JsonXPath {
                         debug('instanceof String');
                         results.add( (String) subElement );
                     }
+                    if (subElement instanceof Boolean) {
+                        debug('instanceof Boolean');
+                        results.add( String.valueOf(subElement) );
+                    }
                     if (subElement instanceof Integer) {
                         debug('instanceof Integer');
                         results.add( String.ValueOf((Integer) subElement) );
                     }
                 }
             }
-            if (current instanceof String) results.add( (String) current );
-            if (current instanceof Integer) results.add( String.ValueOf((Integer) current) );
-            
+            if (current instanceof Boolean) { debug('instanceof Boolean'); results.add( String.valueOf(current) ); } 
+            if (current instanceof String)  { debug('instanceof String'); results.add( (String) current ); }
+            if (current instanceof Integer) { debug('instanceof Integer'); results.add( String.ValueOf((Integer) current) ); }
             return;
         }
 
