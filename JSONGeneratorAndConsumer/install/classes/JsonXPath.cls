@@ -1,7 +1,6 @@
 public  class JsonXPath {
     
-/* 
-* @author Maciej Szymczak
+/*@author Maciej Szymczak
 * @version 2024.12.08
 */    
         
@@ -27,10 +26,8 @@ public  class JsonXPath {
         @InvocableVariable(required=false)
         public  String separator; 
     } 
-    
-    
+
     public static List<String>  extractValues(String jsonString, String jsonPath) {
-        if (jsonPath == '//payload/actionMessages') jsonPath = 'payload/actionMessages';
         Map<String, Object> jsonMap = (Map<String, Object>) JSON.deserializeUntyped(jsonString);
         List<String> results = new List<String>();
         processPath(jsonMap, jsonPath.split('/'), 0, results);
@@ -84,5 +81,30 @@ public  class JsonXPath {
             results.add(String.valueOf(current));
         }
     }
+
+    // *** Helpers ****
+
+    public static String  S(String jsonString, String jsonPath) {
+      return String.join(JsonXPath.extractValues(jsonPath,jsonString),',');
+    }
+    /*
+     You can also use these methods
+    public static Decimal N (String fieldName) {
+        String tmp = S(fieldName);
+        return String.IsBlank(tmp)?0:Decimal.ValueOf(tmp);
+    }
+    public static Date D (String fieldName) {
+        String tmp = S(fieldName);
+        return Date.ValueOf(tmp);
+    }
+    public static Id I (String fieldName) {
+        String tmp = S(fieldName);
+        return String.IsBlank(tmp)?null:tmp;
+    }
+    public static DateTime T (String fieldName) {
+        String tmp = S(fieldName);
+        return DateTime.ValueOf(tmp);
+    }
+	*/
     
 }
