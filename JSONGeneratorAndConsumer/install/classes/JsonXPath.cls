@@ -85,7 +85,7 @@ public  class JsonXPath {
     // *** Helpers ****
 
     public static String  S(String jsonString, String jsonPath) {
-      return String.join(JsonXPath.extractValues(jsonPath,jsonString),',');
+      return String.join(JsonXPath.extractValues(jsonString,jsonPath),',');
     }
     /*
      You can also use these methods
