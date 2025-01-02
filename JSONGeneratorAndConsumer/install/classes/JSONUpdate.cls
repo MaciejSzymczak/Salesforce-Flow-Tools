@@ -53,6 +53,9 @@ public class JSONUpdate {
                 if ( String.IsNotBlank(p.key8) ) tmp.put(p.key8, p.value8);
                 if ( String.IsNotBlank(p.key9) ) tmp.put(p.key9, p.value9);
                 if ( String.IsNotBlank(p.key10) ) tmp.put(p.key10, p.value10);
+                if ( String.IsNotBlank(p.keyBoolean) ) tmp.put(p.keyBoolean, p.valueBoolean);
+                if ( String.IsNotBlank(p.keyBoolean2) ) tmp.put(p.keyBoolean, p.valueBoolean2);
+                if ( String.IsNotBlank(p.keyBoolean3) ) tmp.put(p.keyBoolean, p.valueBoolean3);
                 result.add( opB+JSON.Serialize(tmp)+clB );
             }
             
@@ -67,7 +70,7 @@ public class JSONUpdate {
         public  String operation;
         @InvocableVariable(required=true)
         public  String key;
-        @InvocableVariable(required=false description='required value for operation put. Leave it blank for get and delete')
+        @InvocableVariable(required=false description='for operation "put" enter value. Leave it blank for get and delete')
         public  String value;
         @InvocableVariable(required=false description='optional key2 for operation put and delete. Leave it blank for get')
         public  String key2;
@@ -105,6 +108,19 @@ public class JSONUpdate {
         public  String key10;
         @InvocableVariable(required=false)
         public  String value10;
+        //Boolean values
+        @InvocableVariable(required=false description='Use this to set boolean value')
+        public  String keyBoolean;
+        @InvocableVariable(required=false description='Boolean value')
+        public  Boolean valueBoolean;
+        @InvocableVariable(required=false description='Use this to set boolean value')
+        public  String keyBoolean2;
+        @InvocableVariable(required=false description='Boolean value')
+        public  Boolean valueBoolean2;
+        @InvocableVariable(required=false description='Use this to set boolean value')
+        public  String keyBoolean3;
+        @InvocableVariable(required=false description='Boolean value')
+        public  Boolean valueBoolean3;
     } 
     
 }

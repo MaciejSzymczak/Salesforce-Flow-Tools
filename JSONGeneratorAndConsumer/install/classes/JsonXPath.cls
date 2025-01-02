@@ -35,33 +35,34 @@ public  class JsonXPath {
     }
 
     private static void debug(String m) {
-      //System.debug('DEBUG JsonXPath:' + m);
+      if (test.isRunningTest()) System.debug('DEBUG JsonXPath:' + m);
     }
     
     private static void processPath(Object current, List<String> pathParts, Integer index, List<String> results) {
-        debug('current:'+current);
+        debug('processPath. Current JSON:'+current);
         if (index >= pathParts.size() || current == null) {
             if (current instanceof List<Object>) {
-                debug('final. instanceof List<Object>');
+                debug('Final. instanceof List<Object>');
                 for (Object subElement : (List<Object>) current) {
-                    debug('in loop:'+subElement);
+                    debug('In loop:'+subElement);
                     if (subElement instanceof String) {
-                        debug('instanceof String');
+                        debug('FOUND Instanceof String');
                         results.add( (String) subElement );
                     }
                     if (subElement instanceof Boolean) {
-                        debug('instanceof Boolean');
+                        debug('FOUND Instanceof Boolean');
                         results.add( String.valueOf(subElement) );
                     }
                     if (subElement instanceof Integer) {
-                        debug('instanceof Integer');
+                        debug('FOUND Instanceof Integer');
                         results.add( String.ValueOf((Integer) subElement) );
                     }
                 }
             }
-            if (current instanceof Boolean) { debug('instanceof Boolean'); results.add( String.valueOf(current) ); } 
-            if (current instanceof String)  { debug('instanceof String'); results.add( (String) current ); }
-            if (current instanceof Integer) { debug('instanceof Integer'); results.add( String.ValueOf((Integer) current) ); }
+            if (current instanceof Boolean) { debug('FOUND instanceof Boolean'); results.add( String.valueOf(current)           ); } 
+            if (current instanceof String)  { debug('FOUND instanceof String');  results.add( (String) current                           ); }
+            if (current instanceof Integer) { debug('FOUND instanceof Integer'); results.add( String.ValueOf((Integer) current) ); }
+            if (current == null)            { debug('FOUND null');               results.add( null ); }
             return;
         }
 
@@ -87,8 +88,10 @@ public  class JsonXPath {
     public static String  S(String jsonString, String jsonPath) {
       return String.join(JsonXPath.extractValues(jsonString,jsonPath),',');
     }
+    
     /*
-     You can also use these methods
+    You can also use these methods. Have a look at NetsuiteProcessorInvoice to see real fine implmementation
+
     public static Decimal N (String fieldName) {
         String tmp = S(fieldName);
         return String.IsBlank(tmp)?0:Decimal.ValueOf(tmp);
