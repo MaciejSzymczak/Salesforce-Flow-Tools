@@ -57,11 +57,16 @@ public  class JsonXPath {
                         debug('FOUND Instanceof Integer');
                         results.add( String.ValueOf((Integer) subElement) );
                     }
+                    if (subElement instanceof Decimal) {
+                        debug('FOUND Instanceof Decimal');
+                        results.add( String.ValueOf((Decimal) subElement) );
+                    }
                 }
             }
             if (current instanceof Boolean) { debug('FOUND instanceof Boolean'); results.add( String.valueOf(current)           ); } 
             if (current instanceof String)  { debug('FOUND instanceof String');  results.add( (String) current                           ); }
             if (current instanceof Integer) { debug('FOUND instanceof Integer'); results.add( String.ValueOf((Integer) current) ); }
+            if (current instanceof Decimal) { debug('FOUND instanceof Decimal'); results.add( String.ValueOf((Decimal) current) ); }
             if (current == null)            { debug('FOUND null');               results.add( null ); }
             return;
         }
