@@ -1,7 +1,7 @@
 public  class JsonXPath {
     
 /*@author Maciej Szymczak
-* @version 2024.12.08
+* @version 2025.03.20
 */    
         
     @InvocableMethod (label='JsonXPath' description='Extracts string from JSON') 
@@ -63,11 +63,11 @@ public  class JsonXPath {
                     }
                 }
             }
-            if (current instanceof Boolean) { debug('FOUND instanceof Boolean'); results.add( String.valueOf(current)           ); } 
-            if (current instanceof String)  { debug('FOUND instanceof String');  results.add( (String) current                           ); }
-            if (current instanceof Integer) { debug('FOUND instanceof Integer'); results.add( String.ValueOf((Integer) current) ); }
-            if (current instanceof Decimal) { debug('FOUND instanceof Decimal'); results.add( String.ValueOf((Decimal) current) ); }
-            if (current == null)            { debug('FOUND null');               results.add( null ); }
+            if (current instanceof Boolean) { debug('FOUND instanceof Boolean'); results.add( String.valueOf(current)           ); return; } 
+            if (current instanceof String)  { debug('FOUND instanceof String');  results.add( (String) current                  ); return; }
+            if (current instanceof Integer) { debug('FOUND instanceof Integer'); results.add( String.ValueOf((Integer) current) ); return; }
+            if (current instanceof Decimal) { debug('FOUND instanceof Decimal'); results.add( String.ValueOf((Decimal) current) ); return; }
+            if (current == null)            { debug('FOUND null');               results.add( null );                              return; }
             return;
         }
 
