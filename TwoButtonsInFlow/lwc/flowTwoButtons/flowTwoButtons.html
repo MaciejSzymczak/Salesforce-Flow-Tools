@@ -1,0 +1,13 @@
+<template>
+    <template lwc:if={errorMessage}>
+        <div class="slds-text-color_error slds-text-align_right slds-m-bottom_x-small">{errorMessage}</div>
+    </template>
+    <div class="slds-grid slds-grid_align-end slds-gutters_x-small">
+        <div class="slds-col">
+            <lightning-button label={button2Label} onclick={handleButton2}></lightning-button>
+        </div>
+        <div class="slds-col">
+            <lightning-button variant="brand" label={button1Label} onclick={handleButton1}></lightning-button>
+        </div>
+    </div>
+</template>

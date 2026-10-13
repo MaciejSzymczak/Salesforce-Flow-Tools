@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Flow Two Buttons</masterLabel>
+    <description>Two buttons that each move the flow to the next element; the clicked button is returned in selectedButton. Button 2 can optionally download a file on click.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="button1Label" type="String" label="Button 1 Label" role="inputOnly" />
+            <property name="button2Label" type="String" label="Button 2 Label" role="inputOnly" />
+            <property name="button2DownloadUrl" type="String" label="Button 2 Download URL" description="Optional - opened (downloaded) when button 2 is clicked" role="inputOnly" />
+            <property name="button1RequiredValue" type="String" label="Button 1 Required Value" description="Optional - button 1 does not proceed while this value is empty" role="inputOnly" />
+            <property name="button1RequiredMessage" type="String" label="Button 1 Required Message" description="Error shown when button 1 is clicked with an empty required value" role="inputOnly" />
+            <property name="selectedButton" type="String" label="Selected Button" description="Label of the clicked button" role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
